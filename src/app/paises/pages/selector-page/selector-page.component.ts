@@ -16,6 +16,7 @@ export class SelectorPageComponent implements OnInit {
   miFormulario: FormGroup = this.fb.group({
     region: ['', [Validators.required]],
     pais: ['', [Validators.required]],
+    frontera: ['', [Validators.required]],
   });
 
   //Llenar selectores
@@ -40,9 +41,12 @@ export class SelectorPageComponent implements OnInit {
         switchMap(region => this.paisesService.getPaisesPorRegion(region)),
       )
       .subscribe(paises => {
-        console.log(paises);  
         this.paises = paises;
       });
+
+    //Cuando cambie el país
+    this.miFormulario.get('pais')?.valueChanges
+      .subscribe(codigo => console.log(codigo));
   }
 
   guardar(): void {
