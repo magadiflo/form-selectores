@@ -25,7 +25,7 @@
             <label for="frontera" class="form-label">Frontera</label>
             <select id="frontera" class="form-control" formControlName="frontera">
                 <option value="">-Seleccione-</option>
-                <option *ngFor="let frontera of fronteras;" [value]="frontera">{{ frontera }}</option>
+                <option *ngFor="let frontera of fronteras;" [value]="frontera.cca2">{{ frontera.name.common }}</option>
             </select>
         </div>
     </div>
